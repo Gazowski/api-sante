@@ -1,0 +1,47 @@
+{
+    "compilerOptions": {
+      /* Basic Options */
+      "target": "es2020",                          /* Spécifie la version de ECMAScript ciblée : 'ES3', 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', 'ES2021', 'ES2022', 'ESNEXT'. */
+      "module": "commonjs",                       /* Spécifie le système de modules : 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', 'nodenext', ou 'esnext'. Pour Node.js, 'commonjs' ou 'esnext' (avec moduleResolution: 'nodenext') sont les plus courants. */
+      "lib": [                                    /* Spécifie les fichiers de déclaration de type à inclure dans la compilation. */
+        "es2020"
+      ],
+      "allowJs": true,                         /* Autorise la compilation de fichiers JavaScript. Utile pour les projets hybrides ou la migration progressive. */
+      "outDir": "./dist",                         /* Répertoire de sortie pour les fichiers JavaScript compilés. */
+      "rootDir": "./src",                         /* Spécifie le répertoire racine des fichiers sources. */
+      "strict": true,                              /* Active toutes les options de vérification de type strict (fortement recommandé). */
+      "noImplicitAny": true,                       /* Déclare une erreur sur les expressions et les déclarations avec un type 'any' implicite. */
+      "esModuleInterop": true,                  /* Active l'interopérabilité des modules CommonJS et ES. Important pour l'importation correcte des modules npm. */
+      "skipLibCheck": true,                     /* Ignore la vérification des fichiers de déclaration (.d.ts). Peut accélérer la compilation mais réduit la sécurité de type. À utiliser avec précaution. */
+      "forceConsistentCasingInFileNames": true,   /* Interdit les références de fichiers avec des casses différentes. Important pour la portabilité entre les systèmes d'exploitation. */
+  
+      /* Module Resolution Options */
+      "moduleResolution": "node",                /* Spécifie la stratégie de résolution des modules : 'node' (pour Node.js) ou 'classic'. */
+      "baseUrl": "./src",                           /* Répertoire de base pour la résolution des modules non relatifs. */
+      "paths": {                                 /* Permet de définir des alias pour les chemins d'importation. Très utile pour organiser le code. */
+        "@models/*": ["models/*"],
+        "@routes/*": ["routes/*"],
+        "@controllers/*": ["controllers/*"],
+        "@middlewares/*": ["middlewares/*"],
+        "@config/*": ["config/*"],
+        "@utils/*": ["utils/*"]
+      },
+  
+      /* Source Map Options */
+      "sourceMap": true,                         /* Génère des fichiers source map pour le débogage. Indispensable pour le développement. */
+      "inlineSources": true, /* Inclut le code source dans le fichier source map. */
+  
+      /* Experimental Options */
+      "experimentalDecorators": true,        /* Permet l'utilisation des décorateurs (utilisés par NestJS, par exemple). À activer si vous utilisez des décorateurs. */
+      "emitDecoratorMetadata": true,          /* Émet des métadonnées pour les décorateurs. Nécessaire pour certaines librairies. */
+    },
+    "include": [                                 /* Spécifie les fichiers à inclure dans la compilation. */
+      "src/**/*.ts",
+      "src/**/*.d.ts"
+    ],
+    "exclude": [                                 /* Spécifie les fichiers à exclure de la compilation. */
+      "node_modules",
+      "dist",
+      "**/*.test.ts" // Exclure les fichiers de test
+    ]
+  }

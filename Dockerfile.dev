@@ -1,0 +1,30 @@
+# Utilisation d'une image Node.js LTS (Long Term Support) pour la stabilité
+FROM node:18-alpine AS builder
+
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copier les fichiers package.json et package-lock.json (ou yarn.lock)
+# Ceci permet de mettre en cache les dépendances et d'accélérer les builds suivants
+COPY package*.json ./
+
+# Installer les dépendances
+# Installer les dépendances du projet
+RUN npm install -g nodemon ts-node
+RUN npm ci --omit=dev  
+
+# Ajouter les permissions d'exécution pour nodemon
+# RUN chmod +x /app/node_modules/.bin/nodemon
+
+# Copier le reste du code source
+COPY . .
+
+# Définir l'environnement de développement
+ENV NODE_ENV=development
+
+# Exposer le port sur lequel l'application s'exécute
+EXPOSE 3013
+
+# Commande pour démarrer l'application
+CMD ["nodemon", "--exec", "ts-node", "src/server.ts"]
+# ou node server.js si pas de build
